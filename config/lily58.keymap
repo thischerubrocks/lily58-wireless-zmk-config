@@ -12,24 +12,14 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            // ------------------------------------------------------------------------------------------------------------
-            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
-            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
-            // |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
-            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-            //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
-
-            display-name = "Base";
+        layer_5 {
             bindings = <
-&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6                             &kp N7     &kp N8         &kp N9     &kp N0   &kp MINUS  &kp EQUAL
-&kp TAB       &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y      &kp U          &kp I      &kp O    &kp P      &kp BSPC
-&kp CAPS      &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H      &kp J          &kp K      &kp L    &kp SEMI   &kp SQT
-&kp LCTRL     &kp Z         &kp X         &kp C         &kp V   &kp B           &mo 2        &kp DELETE  &kp N      &kp M          &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
-                                          &kp LALT      &mo 1   &kp LEFT_SHIFT  &kp SPACE    &kp RET     &kp SPACE  &kp RIGHT_GUI  &to 3
+&kp ESC           &kp Q       &kp W  &kp E  &kp R  &kp T                               &kp Y      &kp U      &kp I     &kp O     &kp P            &kp HOME
+&kp BACKSPACE     &kp A       &kp S  &kp D  &kp F  &kp G                               &kp H      &kp J      &kp K     &kp L     &kp LBKT         &kp RBKT
+&kp LEFT_ALT      &kp Z       &kp X  &kp C  &kp V  &kp B                               &kp N      &kp M      &kp SQT   &kp SEMI  &none            &kp RIGHT_ALT
+&kp LEFT_CONTROL  &kp K_FIND  &none  &none  &none  &kp LEFT_ALT  &kp TAB      &kp DEL  &kp MINUS  &kp EQUAL  &kp BSLH  &none     &kp RIGHT_SHIFT  &kp RIGHT_WIN
+                                     &none  &mo 1  &kp LSHFT     &kp SPACE    &kp RET  &kp FSLH   &to 2      &to 3
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
@@ -42,11 +32,11 @@
 
             display-name = "Lower";
             bindings = <
-&kp F1         &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                    &kp F7          &kp F8          &kp F9           &kp F10     &kp F11    &kp F12
-&kp BACKSPACE  &none   &none   &none   &none   &none                     &none           &kp UP          &kp COMMA        &kp PERIOD  &kp SLASH  &kp BSLH
-&none          &none   &none   &none   &none   &none                     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LBKT    &kp RBKT   &none
-&none          &none   &none   &none   &none   &none   &trans    &trans  &trans          &none           &none            &none       &none      &none
-                               &trans  &trans  &trans  &trans    &trans  &trans          &trans          &trans
+&kp F1     &kp F2  &kp F3    &kp F4  &kp F5    &kp F6                       &kp F7    &kp F8  &kp F9    &kp F10    &kp F11  &kp F12
+&none      &kp N1  &kp N2    &kp N3  &kp N4    &kp N5                       &kp N6    &kp N7  &kp N8    &kp N9     &kp N0   &none
+&trans     &none   &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT                    &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &none    &trans
+&kp ENTER  &trans  &none     &none   &none     &none      &trans    &trans  &trans    &none   &none     &none      &trans   &trans
+                             &trans  &trans    &trans     &trans    &trans  &trans    &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -82,14 +72,24 @@
             >;
         };
 
-        layer_4 {
+        default_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
+            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
+            // |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
+
+            display-name = "Base";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6                             &kp N7     &kp N8         &kp N9     &kp N0   &kp MINUS  &kp EQUAL
+&kp TAB       &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y      &kp U          &kp I      &kp O    &kp P      &kp BSPC
+&kp CAPS      &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H      &kp J          &kp K      &kp L    &kp SEMI   &kp SQT
+&kp LCTRL     &kp Z         &kp X         &kp C         &kp V   &kp B           &mo 2        &kp DELETE  &kp N      &kp M          &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
+                                          &kp LALT      &mo 1   &kp LEFT_SHIFT  &kp SPACE    &kp RET     &kp SPACE  &kp RIGHT_GUI  &to 3
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
